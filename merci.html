@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre message</title>
+    <!-- Utilisez le même style que votre site principal -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/steller.css">
+    <style>
+        .thank-you-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .thank-you-icon {
+            font-size: 5rem;
+            color: #3a5b56; /* Couleur primary de votre thème */
+            margin-bottom: 2rem;
+        }
+        .thank-you-message {
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+        .back-button {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <i class="ti-check-box thank-you-icon"></i>
+        <h1 class="mb-3">Message envoyé avec succès !</h1>
+        
+        <div class="thank-you-message">
+            <p class="mb-4">Je vous remercie pour votre message concernant <span id="message-subject" style="font-weight:600;"></span>.</p>
+            <p>Je m'engage à vous répondre dans les plus brefs délais.</p>
+        </div>
+        
+        <a href="index.html#contact" class="btn btn-primary rounded back-button">
+            <i class="ti-arrow-left mr-2"></i>Retour au portfolio
+        </a>
+    </div>
+
+    <script>
+        // Récupère le sujet du message depuis l'URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const subject = urlParams.get('sujet');
+            if(subject) {
+                document.getElementById('message-subject').textContent = subject;
+            }
+        });
+    </script>
+</body>
+</html>
